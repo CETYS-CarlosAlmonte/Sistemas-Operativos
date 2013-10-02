@@ -33,6 +33,7 @@ void produce(int *value)
 {
 	while (1)
 	{
+		sleep(1);
 		printf("Producer thread #%d waiting...\n", *value+1);
 		pthread_mutex_lock(&mutex);
 		if  (!items[*value])
@@ -48,6 +49,7 @@ void consume(int *value)
 {
 	while(1)
 	{
+		sleep(1);
 		printf("Consumer thread #%d waiting...\n", *value+1);
 		pthread_mutex_lock(&mutex);
 		if (items[*value])
