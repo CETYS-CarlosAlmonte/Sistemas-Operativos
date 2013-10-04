@@ -1,0 +1,8 @@
+a) What does org 0x7c00 mean and why is it necessary?
+	A: The BIOS does not load the boot sector to a random spot in memory. The BIOS will always load the boot sector starting at the memory location 0x7C00. After loading the boot sector into memory the BIOS sets the IP register to 0x7C00 and sets the CS register to 0x0 (or just 0). Together this memory address looks like 0x0:0x7C00.
+
+b) What is the purpose of DW 0xAA55 and why is it necessary?
+	A: 0xAA55 ia an specific and required hexadecimal value that is required by the BIOS to be located in the last 2 bytes of the 512 bytes that is the whole bootable file.
+
+c) Why a bootloader should be programmed in assembly?
+	A: Because it need to give direct instructions to the CPU, jumping between sections of memory that contains other instructions, it’s nonsense to use a more complex programming language, you just work with numerical values, representing the memory addresses and values to be stored or retrieved.
